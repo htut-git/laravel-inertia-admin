@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -55,7 +56,9 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // $user = $this->userService->find($id);
+        // dd($user);
+        return Inertia::render('Admin/User/UserEdit');
     }
 
     /**

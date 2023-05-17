@@ -3,9 +3,10 @@
 namespace App\Services;
 
 use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-class UserService{
+class UserService extends Model{
 
     private $user ;
 

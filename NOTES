@@ -1,0 +1,2 @@
+Command Crate Admin Page At js/resources/Admin Folder
+*php artisan app:crate-admin-page User/UserCreate
