@@ -21,7 +21,7 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        return Inertia::render('Admin/User/UserTablePage',[
+        return Inertia::render('Admin/User/UserTable',[
             'users'=>$this->userService->getAll($request)
         ]);
     }
