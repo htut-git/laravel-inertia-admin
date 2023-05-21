@@ -3,7 +3,9 @@
         <NavBarVue></NavBarVue>
         <SideBar></SideBar>
         <div class="p-4 sm:ml-64">
-            <slot></slot>
+            <div class="p-4   rounded-lg dark:border-gray-700 mt-14">
+                <slot></slot>
+            </div>
         </div>
     </div>
 </template>
@@ -15,9 +17,9 @@ import { initFlowbite } from 'flowbite';
 export default {
     name: 'App',
     components: {
-        NavBarVue,SideBar
+        NavBarVue, SideBar
     },
-    mounted () {
+    mounted() {
         initFlowbite();
     },
 }

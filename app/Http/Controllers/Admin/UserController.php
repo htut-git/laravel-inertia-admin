@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -22,7 +23,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         return Inertia::render('Admin/User/UserTable',[
-            'users'=>$this->userService->getAll($request)
+            'users'=>$this->userService->getAllByPaginate($request),
         ]);
     }
 
@@ -53,9 +54,11 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $user)
     {
-        //
+        return Inertia::render('Admin/User/UserEdit',[
+            'user'=>$user,
+        ]);
     }
 
     /**

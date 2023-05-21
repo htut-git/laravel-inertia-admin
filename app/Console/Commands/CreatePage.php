@@ -28,9 +28,9 @@ class CreatePage extends Command
     {
         $pageName = $this->argument('name');
         $name = ucfirst(basename($pageName));
-        $fileName =  $name. '.vue';
-        $pathName = str_replace(basename($pageName),'',$pageName);
-        $filePath = resource_path('js/Pages/').$pathName.$fileName;
+        $fileName = $name . '.vue';
+        $pathName = str_replace(basename($pageName), '', $pageName);
+        $filePath = resource_path('js/Pages/') . $pathName . $fileName;
 
         if (File::exists($filePath)) {
             $this->error("The file already exists: $filePath");
@@ -39,17 +39,25 @@ class CreatePage extends Command
 
         $stub = <<<STUB
         <template>
-        <App>
-
-        </App>
-    </template>
+            <App>
+            <BreadCrumb :titles = breadCrumbs></BreadCrumb>
+            </App>
+        </template>
 
     <script>
+    import BreadCrumb from '@/Components/Application/BreadCrumb.vue';
     import App from '@/Layouts/App.vue';
     export default {
         name: '{$name}',
+        data() {
+            return {
+                breadCrumbs:[
+                    "{$name}:route('dashboard'),fa-solid fa-house",
+                ]
+            }
+        },
         components: {
-            App,
+            App,BreadCrumb
         },
     }
     </script>

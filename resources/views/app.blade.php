@@ -11,7 +11,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
+    <script src="https://kit.fontawesome.com/3b62b87f85.js" crossorigin="anonymous"></script>
     <!-- Scripts -->
     @routes
     @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
@@ -22,5 +22,6 @@
     @inertia
 </body>
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
 
 </html>

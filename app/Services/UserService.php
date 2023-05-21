@@ -14,12 +14,12 @@ class UserService{
         $this->user = new User();
     }
 
-    public function getAll(Request $request)
+    public function getAllByPaginate(Request $request,$paginate = 5)
     {
        return  $this->user->when($request->s,function($query) use ($request){
         $query->where('name','like','%'.$request->s.'%')
         ->orWhere('email','like','%'.$request->s.'%');
-       })->paginate(5);
+       })->paginate($paginate);
     }
 
     public function getUserData()
